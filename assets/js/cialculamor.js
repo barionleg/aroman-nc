@@ -32,50 +32,50 @@ function calculate() {
 function fromRoman(str) {
 	str = str.toUpperCase();
 	const romanToDecimal = {
-		Y: 1000000,
-		SY: 900000,
-		T: 500000,
-		ST: 400000,
-		S: 100000,
-		QS: 90000,
-		R: 50000,
-		QR: 40000,
-		Q: 10000,
-		OQ: 9000,
-		P: 5000,
-		OP: 4000,
-		O: 1000,
-		M: 1000,
-		CM: 900,
-		D: 500,
-		CD: 400,
-		C: 100,
-		XC: 90,
-		L: 50,
-		XL: 40,
-		X: 10,
-		IX: 9,
-		V: 5,
-		IV: 4,
-		I: 1
+		ყ: 1000000,
+		სყ: 900000,
+		ტ: 500000,
+		სტ: 400000,
+		ს: 100000,
+		ქს: 90000,
+		რ: 50000,
+		ქრ: 40000,
+		ქ: 10000,
+		ოქ: 9000,
+		პ: 5000,
+		ოპ: 4000,
+		ო: 1000,
+		მ: 1000,
+		სმ: 900,
+		დ: 500,
+		ცდ: 400,
+		ც: 100,
+		ხც: 90,
+		ლ: 50,
+		ხლ: 40,
+		ხ: 10,
+		იხ: 9,
+		ვ: 5,
+		ივ: 4,
+		ი: 1
 	};
 	const mapObj = {
-		_I: 'O',
-		_I_V: 'OP',
-		_V: 'P',
-		_I_X: 'OQ',
-		_X: 'Q',
-		_X_L: 'QR',
-		_L: 'R',
-		_X_C: 'QS',
-		_C: 'S',
-		_C_D: 'ST',
-		_D: 'T',
-		_C_M: 'SY',
-		_M: 'Y',
+		_ი: 'ო',
+		_ი_ვ: 'ოპ',
+		_ვ: 'პ',
+		_ი_ხ 'ოქ',
+		_ხ: 'ქ',
+		_ხ_ლ: 'ქრ',
+		_ლ: 'რ',
+		_ხ_ც: 'ქს',
+		_ც: 'ს',
+		_ც_დ: 'სტ',
+		_დ: 'ტ',
+		_ც_მ: 'სუ',
+		_მ: 'ყ',
 	};
 
-	str = str.replace(/_I|_I_V|_V|_I_X|_X|_X_L|_L|_X_C|_C|_C_D|_D|_C_M|_M/gi, matched => mapObj[matched]);
+	str = str.replace(/_ი|_ი_ვ|_ვ|_ი_ხ|_ხ|_ხ_ლ|_ლ|_ხ_ც|_ც_ც_დ_დ|_ც_მ|_მ/gi, matched => mapObj[matched]);
 	let result = 0;
 
 	for (let i = 0; i < str.length; i++) {
@@ -114,15 +114,15 @@ function formatedResult(str) {
 	if(isNaN(str)){
 		str = str.toString();
 		const mapObj = {
-			_I: '<span class="overline">I</span>',
-			_V: '<span class="overline">V</span>',
-			_X: '<span class="overline">X</span>',
-			_L: '<span class="overline">L</span>',
-			_C: '<span class="overline">C</span>',
-			_D: '<span class="overline">D</span>',
-			_M: '<span class="overline">M</span>',
+			_ი: '<span class="overline">ი</span>',
+			_ვ: '<span class="overline">ვ</span>',
+			_ხ: '<span class="overline">ხ</span>',
+			_ლ: '<span class="overline">ლ</span>',
+			_ც: '<span class="overline">ც/span>',
+			_დ: '<span class="overline">დ</span>',
+			_მ: '<span class="overline">მ</span>',
 		};
-		return str.replace(/_I|_V|_X|_L|_C|_D|_M/gi, matched => mapObj[matched]);
+		return str.replace(/_ი|_ვ|_ხ|_ლ|_ც|_დ|_მ/gi, matched => mapObj[matched]);
 	}
 	else {
 		return numberWithCommas(str);
@@ -133,5 +133,5 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const roman = ['_M', '_C_M', '_D', '_C_D', '_C', '_X_C', '_L', '_X_L', '_X', '_I_X', '_V', '_I_V', 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+const roman = ['_მ', '_ც_მ', '_დ', '_ც_დ', '_ც', '_ხ_ც', '_ლ', '_ხ_ლ', '_ხ', '_ი_ხ', '_ვ', '_ი_ვ', 'მ', 'ცმ', 'დ', 'ცდ', 'ც', 'ხც', 'ლ', 'ხლ', 'ხ', 'იხ', 'ვ', 'ივ', 'ი']
 const decimal = [1000000, 900000, 500000, 400000, 100000, 90000, 50000, 40000, 10000, 9000, 5000, 4000, 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
